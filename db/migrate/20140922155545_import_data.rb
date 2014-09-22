@@ -38,12 +38,13 @@ class ImportData < ActiveRecord::Migration
     StudyPlan.delete_all
     StudyPlanCourse.delete_all
     Teacher.delete_all
-    TeacherLesson.delete_all
+    TeacherCourse.delete_all
   end
 
   def save_in_db(h, global_info)
     unless @degree = Degree.where(name: global_info[:degree], master: h[:master]).first
       @degree = Degree.new(name: global_info[:degree], area: global_info[:area], master: h[:master])
+      @degree.save
     end
 
     unless @course = Course.where(name: h[:course], degree_id: @degree.id).first
@@ -55,22 +56,20 @@ class ImportData < ActiveRecord::Migration
     h[:teachers].each do |teacher_array|
       unless @teacher = Teacher.where(name: teacher_array[0], surname: teacher_array[1]).first
         @teacher = Teacher.new(name: teacher_array[0], surname: teacher_array[1])
-        @teacher.lessons.append @lesson
         @teacher.save
       end
+      @course.teachers.append @teacher if @course.teachers.where(id: @teacher.id).empty?
     end
 
     h[:rooms].each do |room_name|
       unless @room = Room.where(name: room_name).first
         @room = Room.new(name: room_name)
-        @room.lessons.append @lesson
-        @room.save
       end
+      @room.lessons.append @lesson
+      @room.save
     end
 
-    @lesson.save
     @course.save
-    @degree.save
   end
 
   def parse_html_timetable(file_name, global_info)
