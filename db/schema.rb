@@ -11,16 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140921181425) do
+ActiveRecord::Schema.define(version: 20140922060200) do
 
   create_table "courses", force: true do |t|
     t.string   "name"
     t.integer  "year"
     t.boolean  "semester"
-    t.boolean  "master"
     t.string   "degree"
     t.string   "area"
     t.integer  "degree_year"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "degree_id"
+  end
+
+  create_table "degrees", force: true do |t|
+    t.string   "name"
+    t.string   "area"
+    t.boolean  "master"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -43,6 +51,19 @@ ActiveRecord::Schema.define(version: 20140921181425) do
 
   create_table "rooms", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "study_plan_courses", force: true do |t|
+    t.integer  "study_plan_id"
+    t.integer  "course_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "study_plans", force: true do |t|
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
