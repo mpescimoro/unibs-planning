@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+
+  root 'study_plans#index'
+
+  resources :study_plans, shallow: true do
+    post 'add_course'
+    delete 'remove_course/:course_id' => 'study_plans#remove_course', as: 'remove_course'
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

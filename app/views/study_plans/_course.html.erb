@@ -1,0 +1,4 @@
+<li id='course<%= course.id %>'>
+  <%= course.name %> <%= link_to 'X', study_plan_remove_course_path(@study_plan, course.id), method: :delete, remote: true %>
+  <% puts study_plan_remove_course_path(@study_plan, course.id) %>
+</li>
