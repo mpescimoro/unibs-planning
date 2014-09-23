@@ -1,10 +1,9 @@
+<%= form_tag(study_plan_add_course_path(@study_plan), id: 'course_form', remote: true)  do %>
+  <%= select_tag(:course_id, options_for_select(@courses.map { |c| [c.name, c.id] }), include_blank: true, class: 'chosen-select') %>
+<% end %>
+
 <ul id='selected_courses'>
   <% @study_plan.courses.each do |course| %>
     <%= render partial: 'course', locals: { course: course } %>
   <% end %>
 </ul>
-
-<%= form_tag(study_plan_add_course_path(@study_plan), id: 'course_form', remote: false)  do %>
-  <%= select_tag(:course_id, options_for_select(@courses.map { |c| [c.name, c.id] }), include_blank: true, class: 'chosen-select') %>
-  <!%= submit_tag 'Ok', style: 'display:yes', id: 'add_course_button' %>
-<% end %>

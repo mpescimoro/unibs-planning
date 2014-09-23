@@ -10,7 +10,7 @@ class StudyPlansController < ApplicationController
     @study_plan.courses.append course unless @study_plan.courses.include? course
     respond_to do |f|
       f.html { redirect_to action: :index }
-      f.js
+      f.js { @course = Course.find(params[:course_id]) }
     end
   end
 
