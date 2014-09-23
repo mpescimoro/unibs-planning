@@ -7,10 +7,15 @@ class StudyPlansController < ApplicationController
 
   def add_course
     course = Course.find(params[:course_id])
-    @study_plan.courses.append course unless @study_plan.courses.include? course
+    add_course = ! @study_plan.courses.include?(course)
+    @study_plan.courses.append course if add_course
     respond_to do |f|
       f.html { redirect_to action: :index }
-      f.js { @course = Course.find(params[:course_id]) }
+      if add_course
+        f.js { @course = Course.find(params[:course_id]) }
+      else
+        f.js
+      end
     end
   end
 

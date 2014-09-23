@@ -12,3 +12,5 @@ $ ->
 
   $('#course_id').chosen().change ->
     $('#course_form').submit()
+    $('#course_id').prop('selectedIndex', 0)
+    $('#course_id').trigger('chosen:updated')

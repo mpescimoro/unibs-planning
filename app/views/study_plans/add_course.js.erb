@@ -1,1 +1,1 @@
-$('#selected_courses').append('<%=j render partial: 'course', locals: { course: @course } %>')
+$('#selected_courses').append('<%=j render partial: 'course', locals: { course: @course } if @course %>')
