@@ -1,1 +1,2 @@
 $('#selected_courses').append('<%=j render partial: 'course', locals: { course: @course } if @course %>')
+$('.timetable-container').html('<%=j render partial: 'timetable', locals: { timetable: @timetable } %>')

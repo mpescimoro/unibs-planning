@@ -7,3 +7,25 @@
     <%= render partial: 'course', locals: { course: course } %>
   <% end %>
 </ul>
+
+<table>
+  <tr>
+    <% for day in Lesson::DAYS do %>
+      <td>
+        Giorno: <%= day %>
+        <table>
+          <% for hour in Lesson::HOURS do %>
+            <tr>
+              <% for col in @timetable.columns do %>
+                <td>
+                  Ora: <%= hour %></br>
+                  Colonna: <%= col %>
+                </td>
+              <% end %>
+            </tr>
+          <% end %>
+        </table>
+      </td>
+    <% end %>
+  </tr>
+</table>
