@@ -1,23 +1,18 @@
-<div class='timetable-container'>
-  <table class='timetable'>
+<table class='timetable'>
     <tr>
-      <% timetable.each_day do |day| %>
+      <% Lesson::DAYS.each do |day| %>
+        <th colspan=<%= timetable.day(day).columns_count %>>
+          <h3><%= Lesson::DAYS_NAMES[day] %></h3>
+        </th>
+      <% end %>
+    </tr>
+  <% timetable.each_hour do |hour| %>
+    <tr>
+      <% hour.each do |lesson| %>
         <td>
-          <%= Lesson::DAYS_NAMES[day.number] %>
-          <table>
-            <% day.each_hour do |hour| %>
-              <tr>
-                <% hour.each do |lesson| %>
-                  <td>
-                    <%= lesson.course.name if lesson %>
-                  </td>
-                <% end %>
-              </tr>
-            <% end %>
-          </table>
+            <%= lesson.course.name if lesson %>
         </td>
       <% end %>
     </tr>
-  </table>
-</div>
-
+  <% end %>
+</table>

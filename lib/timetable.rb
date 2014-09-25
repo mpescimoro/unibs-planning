@@ -39,6 +39,16 @@ class Timetable
     @days.empty?
   end
 
+  def each_hour
+    Lesson::HOURS.each do |h|
+      hour = []
+      Lesson::DAYS.each do |d|
+        hour.concat @days[d][h]
+      end
+      yield(hour)
+    end
+  end
+
   class TimetableDay
 
     attr_reader :columns_count, :number
@@ -61,6 +71,10 @@ class Timetable
       end
 
       @columns_count = [@columns_count, column+1].max
+
+      Lesson::HOURS.each do |hour|
+        @table[hour][@columns_count-1] ||= nil
+      end
     end
 
     def remove_course(course)
