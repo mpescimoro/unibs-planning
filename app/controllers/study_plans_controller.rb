@@ -39,6 +39,6 @@ class StudyPlansController < ApplicationController
 
   private
   def set_study_plan
-    @study_plan = StudyPlan.first
+    @study_plan = StudyPlan.find(params[:id] || params[:study_plan_id])
   end
 end
