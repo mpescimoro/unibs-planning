@@ -1,13 +1,17 @@
-<%= form_tag(study_plan_add_course_path(@study_plan), id: 'course_form', remote: true)  do %>
-  <%= select_tag(:course_id, options_for_select(@courses.map { |c| [c.name, c.id] }), include_blank: true, class: 'chosen-select') %>
-<% end %>
-
-<ul id='selected_courses'>
-  <% @study_plan.courses.each do |course| %>
-    <%= render partial: 'course', locals: { course: course } %>
+<nav>
+  <%= form_tag(study_plan_add_course_path(@study_plan), id: 'course_form', remote: true)  do %>
+    <%= select_tag(:course_id, options_for_select(@courses.map { |c| [c.name, c.id] }), include_blank: true, class: 'chosen-select') %>
   <% end %>
-</ul>
+
+  <ul id='selected_courses'>
+    <% @study_plan.courses.each do |course| %>
+      <%= render partial: 'course', locals: { course: course } %>
+    <% end %>
+  </ul>
+</nav>
+
 
 <div class='timetable-container'>
   <%= render partial: 'timetable', locals: { timetable: @timetable } %>
 </div>
+
