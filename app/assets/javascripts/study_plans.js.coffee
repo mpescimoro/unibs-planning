@@ -8,7 +8,7 @@ $ ->
   $('.chosen-select').chosen
     allow_single_deselect: true
     no_results_text: 'Nessun risultato trovato'
-    width: '200px'
+    width: '350px'
 
   $('#course_id').chosen().change ->
     $('#course_form').submit()

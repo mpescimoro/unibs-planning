@@ -1,4 +1,10 @@
-<li id='course<%= course.id %>'>
-  <%= course.name %> <%= link_to 'X', study_plan_remove_course_path(@study_plan, course.id), method: :delete, remote: true %>
-  <% puts study_plan_remove_course_path(@study_plan, course.id) %>
-</li>
+<div id='<%= course.html_id %>'>
+  <a href="#" data-dropdown="<%= course.html_id %>drop" aria-expanded="true" class="course"><%= course.name %></a>
+
+  <ul id="<%= course.html_id %>drop" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
+    <li><a href="#">Assegna soprannome</a></li>
+    <li><a href="#">Cambia colore</a></li>
+    <li><%= link_to 'Rimuovi', study_plan_remove_course_path(@study_plan, course.id), style: 'color: red', method: :delete, remote: true %></li>
+  </ul>
+</div>
+

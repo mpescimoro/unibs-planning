@@ -1,2 +1,2 @@
-$('#course<%=j params[:course_id] %>').remove()
+$('#<%=j @course.html_id %>').remove()
 $('.timetable-container').html('<%=j render partial: 'timetable', locals: { timetable: @timetable } %>')

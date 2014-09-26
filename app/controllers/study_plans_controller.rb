@@ -18,11 +18,11 @@ class StudyPlansController < ApplicationController
     @timetable = Timetable.new(@study_plan.courses)
 
     respond_to do |f|
-      f.html { redirect_to action: :index }
+      f.html { redirect_to @study_plan }
       if add_course
         f.js { @course = Course.find(params[:course_id]) }
       else
-        f.js
+        f.js # TODO risposta senza context-switch
       end
     end
   end
@@ -32,8 +32,8 @@ class StudyPlansController < ApplicationController
     @timetable = Timetable.new(@study_plan.courses)
 
     respond_to do |f|
-      f.html { redirect_to action: :index }
-      f.js
+      f.html { redirect_to @study_plan }
+      f.js { @course = Course.find(params[:course_id]) }# TODO risposta senza context-switch
     end
   end
 

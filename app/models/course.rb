@@ -12,4 +12,8 @@ class Course < ActiveRecord::Base
   def academic_year
     "A.A. #{year}/#{year+1}"
   end
+
+  def html_id
+    "#{self.class}#{id}"
+  end
 end

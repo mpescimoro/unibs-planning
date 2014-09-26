@@ -1,18 +1,25 @@
 <table class='timetable'>
-    <tr>
-      <% Lesson::DAYS.each do |day| %>
-        <th colspan=<%= timetable.day(day).columns_count %>>
-          <h3><%= Lesson::DAYS_NAMES[day] %></h3>
-        </th>
+  <tr>
+    <th class='hour'>
+    </th>
+
+    <% Lesson::DAYS.each do |day| %>
+      <th colspan=<%= timetable.day(day).columns_count %>>
+        <h3><%= Lesson::DAYS_NAMES[day] %></h3>
+      </th>
+      <% unless day == Lesson::DAYS.last %>
+        <th class='separator'></th>
       <% end %>
-    </tr>
+    <% end %>
+  </tr>
+
+  <% @hours = Lesson::HOURS_NAMES.clone %>
   <% timetable.each_hour do |hour| %>
     <tr>
-      <% hour.each do |lesson| %>
-        <td>
-            <%= lesson.course.name if lesson %>
-        </td>
-      <% end %>
+      <td class='hour'>
+        <%= @hours.shift %>
+      </td>
+      <%= timetable_hour_row(hour) %>
     </tr>
   <% end %>
 </table>

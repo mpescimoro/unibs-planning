@@ -43,7 +43,7 @@ class Timetable
     Lesson::HOURS.each do |h|
       hour = []
       Lesson::DAYS.each do |d|
-        hour.concat @days[d][h]
+        hour << @days[d][h]
       end
       yield(hour)
     end
