@@ -25,7 +25,7 @@ module StudyPlansHelper
     if lesson.first and !lesson.last
       'top'
     elsif lesson.last and !lesson.first
-      'bottom'
+      'bot'
     elsif lesson.last and lesson.first
       'single'
     else

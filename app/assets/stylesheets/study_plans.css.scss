@@ -11,19 +11,58 @@
     vertical-align: text-top;
     td {
       border-top: 1px solid;
+      border-color: #E9E9E9;
       width: 100px;
       height: 100px;
       vertical-align: middle;
       text-align: center;
     }
-    .separator {
+
+    td.top {
+      display: table-cell;
+      background-color: #F11;
+      width: relative;
+      border-radius: 10px 10px 0px 0px;
+      padding: 7px 7px;
+      color: #FFF;
+    }
+
+    td.bot {
+      border-top: none;
+      display: table-cell;
+      background-color: #F11;
+      width: relative;
+      border-radius: 0px 0px 10px 10px;
+      padding: 7px 7px;
+      color: #FFF;
+    }
+
+    td.mid {
+      border-top: none;
+      display: table-cell;
+      background-color: #F11;
+      width: relative;
+      padding: 7px 7px;
+      color: #FFF;
+    }
+
+    td.single {
+      display: table-cell;
+      background-color: #F11;
+      width: relative;
+      border-radius: 10px 10px 10px 10px;
+      padding: 7px 7px;
+      color: #FFF;
+    }
+
+    td.separator {
       width:30px;
     }
 
-    .hour {
-      text-align: right;
+    td.hour {
+      text-align: left;
       vertical-align: top;
-      width: 50px;
+      width: 60px;
     }
   }
 }
