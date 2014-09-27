@@ -1,12 +1,17 @@
 class Timetable
 
-  def initialize(courses=nil)
-    @days = []
+  attr_reader :id
 
-    if courses
+  def initialize(study_plan=nil)
+    @days = []
+    @id = nil
+
+    if study_plan
+      @id = study_plan.id
+
       Lesson::DAYS.each do |day|
         @days << TimetableDay.new(day)
-        courses.each do |course|
+        study_plan.courses.each do |course|
           @days.last.add_lessons(course.lessons.where(day: day))
         end
       end

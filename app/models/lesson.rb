@@ -9,4 +9,9 @@ class Lesson < ActiveRecord::Base
 
   belongs_to :course
   has_many :teachers, through: :courses
+
+  def color(study_plan_id)
+    study_plan_course = self.course.study_plan_courses.where(study_plan_id: study_plan_id).first
+    study_plan_course.color ? study_plan_course.color.hex : ''
+  end
 end

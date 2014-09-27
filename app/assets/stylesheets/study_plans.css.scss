@@ -12,6 +12,8 @@
     td {
       border-top: 1px solid;
       border-color: #E9E9E9;
+      color: #FFF;
+      background-color: black;
       width: 100px;
       height: 100px;
       vertical-align: middle;
@@ -19,47 +21,38 @@
     }
 
     td.top {
-      display: table-cell;
-      background-color: #F11;
-      width: relative;
       border-radius: 10px 10px 0px 0px;
       padding: 7px 7px;
-      color: #FFF;
     }
 
     td.bot {
       border-top: none;
-      display: table-cell;
-      background-color: #F11;
-      width: relative;
       border-radius: 0px 0px 10px 10px;
       padding: 7px 7px;
-      color: #FFF;
     }
 
     td.mid {
       border-top: none;
-      display: table-cell;
-      background-color: #F11;
-      width: relative;
       padding: 7px 7px;
-      color: #FFF;
     }
 
     td.single {
-      display: table-cell;
-      background-color: #F11;
-      width: relative;
       border-radius: 10px 10px 10px 10px;
       padding: 7px 7px;
-      color: #FFF;
     }
 
     td.separator {
+      background-color: transparent;
       width:30px;
     }
 
+    td.empty {
+      background-color: transparent;
+    }
+
     td.hour {
+      color: black;
+      background-color: transparent;
       text-align: left;
       vertical-align: top;
       width: 60px;
@@ -101,8 +94,29 @@ nav {
   }
 }
 
+.color-palette {
+  margin-left: auto;
+  margin-right: auto;
+
+  .color-dot {
+    width: 2em;
+    height: 2em;
+    border-radius: 100%;
+    float: left;
+    margin-left: 0.5em;
+  }
+}
+
+.course-color-icon {
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 20%;
+    float: left;
+    margin-right: 0.3em;
+}
+
 //nav a:link, nav a:visited {
-	//display: block;
+	//display: block;></div>
 	//width: 100%;
 	//font-weight: bold;
 	//line-height: 3em;

@@ -19,7 +19,7 @@
       <td class='hour'>
         <%= @hours.shift %>
       </td>
-      <%= timetable_hour_row(hour) %>
+      <%= timetable_hour_row(hour, timetable.id) %>
     </tr>
   <% end %>
 </table>

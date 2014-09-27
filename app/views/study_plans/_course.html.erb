@@ -1,9 +1,21 @@
 <div id='<%= course.html_id %>'>
-  <a href="#" data-dropdown="<%= course.html_id %>drop" aria-expanded="true" class="course"><%= course.name %></a>
+  <a href="#" data-dropdown="<%= course.html_id %>drop" aria-expanded="true" class="course">
+    <div class='course-color-icon' style="background-color: #<%= @study_plan.color_for(course) %>"></div><%= course.name %>
+  </a>
 
   <ul id="<%= course.html_id %>drop" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
     <li><a href="#">Assegna soprannome</a></li>
-    <li><a href="#">Cambia colore</a></li>
+
+    <li><a href="#" data-reveal-id="<%= course.html_id %>color" aria-expanded="true">Cambia colore</a></li>
+    <div class="reveal-modal" data-reveal id="<%= course.html_id %>color">
+      Scegli un colore!</br></br>
+      <div class='color-palette'>
+        <% Color.all.each do |color| %>
+          <%= link_to color_dot_for(color), study_plan_change_course_color_path(@study_plan, course, color), method: :post %>
+        <% end %>
+      </div>
+    </div>
+
     <li><%= link_to 'Rimuovi', study_plan_remove_course_path(@study_plan, course.id), style: 'color: red', method: :delete, remote: true %></li>
   </ul>
 </div>

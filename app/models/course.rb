@@ -16,4 +16,10 @@ class Course < ActiveRecord::Base
   def html_id
     "#{self.class}#{id}"
   end
+
+  def set_color(color, study_plan)
+    sp_course = self.study_plan_courses.where(study_plan_id: study_plan.id).first
+    sp_course.color_id = color.id
+    sp_course.save
+  end
 end
