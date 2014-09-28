@@ -11,7 +11,7 @@
       Scegli un colore!</br></br>
       <div class='color-palette'>
         <% Color.all.each do |color| %>
-          <%= link_to color_dot_for(color), study_plan_change_course_color_path(@study_plan, course, color), method: :post %>
+          <%= link_to color_dot_for(color), study_plan_change_course_color_path(@study_plan, course, color), method: :post, remote: true %>
         <% end %>
       </div>
     </div>

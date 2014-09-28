@@ -1,0 +1,3 @@
+$('.timetable-container').html('<%=j render partial: 'timetable', locals: { timetable: @timetable } %>');
+$('#<%=j @course.html_id %>').html('<%=j render partial: 'course', locals: { course: @course } %>');
+$('#<%=j @course.html_id %>color').foundation('reveal', 'close');

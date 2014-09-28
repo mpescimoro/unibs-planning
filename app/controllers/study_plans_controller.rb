@@ -49,7 +49,7 @@ class StudyPlansController < ApplicationController
 
     respond_to do |f|
       f.html { redirect_to @study_plan }
-      f.js
+      f.js { @course = Course.find(params[:course_id]) }
     end
   end
 
