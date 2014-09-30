@@ -2,7 +2,15 @@ class StudyPlansController < ApplicationController
   before_action :set_study_plan, only: [:show, :add_course, :remove_course, :change_course_color, :rename_course]
 
   def index
-    redirect_to study_plan_path(StudyPlan.first)
+    if cookies[:study_plan_id]
+      @study_plan = StudyPlan.find(cookies[:study_plan_id])
+    else
+      @study_plan = StudyPlan.new
+      @study_plan.save
+      cookies[:study_plan_id] = @study_plan.id
+    end
+
+    redirect_to @study_plan
   end
 
   def show
