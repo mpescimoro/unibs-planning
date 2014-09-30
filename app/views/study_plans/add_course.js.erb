@@ -1,2 +1,13 @@
 $('#selected-courses').append('<%=j render partial: 'course', locals: { course: @course } if @course %>');
-$('.timetable-container').html('<%=j render partial: 'timetable', locals: { timetable: @timetable } %>')
+$('.timetable-container').html('<%=j render partial: 'timetable', locals: { timetable: @timetable } %>');
+$('#course-select-container').html('<%=j render partial: 'course_select' %>');
+
+$('.chosen-select-course').chosen({
+  allow_single_deselect: true,
+  no_results_text: 'Nessun risultato trovato',
+  width: '100%'
+});
+
+$('.chosen-select-course').chosen().change(function() {
+  $('#course_form').submit();
+});

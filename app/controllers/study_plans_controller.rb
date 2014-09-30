@@ -11,22 +11,22 @@ class StudyPlansController < ApplicationController
   end
 
   def add_course
-    course = Course.find(params[:course_id])
-    add_course = ! @study_plan.courses.include?(course)
+    @course = params[:course_id].blank? ? nil : Course.find(params[:course_id])
+    add_course = @course and !@study_plan.courses.include?(@course)
     if add_course
-      @study_plan.courses.append course
-      course.set_color(Color.offset(rand(Color.count)).first, @study_plan)
+      @study_plan.courses.append @course
+      @course.set_color(Color.offset(rand(Color.count)).first, @study_plan)
     end
+
+    @courses = Course.all
+    @courses = @courses.where(degree_year: params[:year]) unless params[:year].blank?
+    @courses = @courses.joins(:degree).where(degrees: { id: params[:degree_id] }) unless params[:degree_id].blank?
 
     @timetable = Timetable.new(@study_plan)
 
     respond_to do |f|
       f.html { redirect_to @study_plan }
-      if add_course
-        f.js { @course = Course.find(params[:course_id]) }
-      else
-        f.js # TODO risposta senza context-switch
-      end
+      f.js
     end
   end
 

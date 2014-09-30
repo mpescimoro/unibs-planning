@@ -5,12 +5,27 @@
 
 $ ->
   # enable chosen js
-  $('.chosen-select').chosen
+  $('.chosen-select-course').chosen
     allow_single_deselect: true
     no_results_text: 'Nessun risultato trovato'
-    width: '350px'
+    width: '100%'
 
-  $('#course_id').chosen().change ->
+  $('.chosen-select-degree').chosen
+    allow_single_deselect: true
+    no_results_text: 'Nessun risultato trovato'
+    width: '100%'
+
+  $('.chosen-select-year').chosen
+    allow_single_deselect: true
+    no_results_text: 'Nessun risultato trovato'
+    width: '100%'
+    disable_search: true
+
+  $('.chosen-select-course').chosen().change ->
     $('#course_form').submit()
-    $('#course_id').prop('selectedIndex', 0)
-    $('#course_id').trigger('chosen:updated')
+
+  $('#degree_id').chosen().change ->
+    $('#course_form').submit()
+
+  $('#year').chosen().change ->
+    $('#course_form').submit()

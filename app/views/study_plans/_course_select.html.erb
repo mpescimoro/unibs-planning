@@ -1,0 +1,2 @@
+<%= label_tag :aggiungi_un_corso %>
+<%= select_tag(:course_id, options_for_select(@courses.map { |c| [c.name, c.id] }), include_blank: true, class: 'chosen-select-course') %>

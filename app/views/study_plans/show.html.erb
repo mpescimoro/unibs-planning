@@ -2,10 +2,21 @@
   <div class='courses'>
     <div class='course-select'>
       <%= form_tag(study_plan_add_course_path(@study_plan), id: 'course_form', remote: true) do %>
-        <%= label_tag :corso_di_laurea %>
-        <%= select_tag(:degree_id, options_for_select(Degree.all.map { |d| [d.name, d.id] }), include_blank: true, class: 'chosen-select') %>
-        <%= label_tag :corso %>
-        <%= select_tag(:course_id, options_for_select(@courses.map { |c| [c.name, c.id] }), include_blank: true, class: 'chosen-select') %>
+        <div class='row collapse'>
+          <div class='small-10 columns'>
+            <%= label_tag :corso_di_laurea %>
+            <%= select_tag(:degree_id, options_for_select(Degree.all.map { |d| [d.full_name, d.id] }), include_blank: true, class: 'chosen-select-degree') %>
+          </div>
+
+          <div class='small-2 columns'>
+            <%= label_tag :anno %>
+            <%= select_tag(:year, options_for_select([1,2,3]), include_blank: true, class: 'chosen-select-year') %>
+          </div>
+        </div>
+
+        <div class='row' id='course-select-container'>
+          <%= render partial: 'course_select' %>
+        </div>
       <% end %>
     </div>
 
