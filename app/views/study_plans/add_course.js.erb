@@ -1,4 +1,4 @@
-$('#selected-courses').append('<%=j render partial: 'course', locals: { course: @course } if @course %>');
+$('#selected-courses').append('<%=j render partial: 'course', locals: { course: @course } if @course_added %>');
 $('.timetable-container').html('<%=j render partial: 'timetable', locals: { timetable: @timetable } %>');
 $('#course-select-container').html('<%=j render partial: 'course_select' %>');
 
