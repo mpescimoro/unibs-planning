@@ -71,6 +71,7 @@ nav {
 	box-shadow: 4px 0 5px rgba(0,0,0,0.2);
 	z-index: 1;
 	cursor: pointer;
+  -webkit-animation: change_color 10s 20;
 
 
   padding-left: 20px;
@@ -83,9 +84,10 @@ nav {
 
     a.course {
       color: white;
+      padding: 2px;
     }
     a.course:hover {
-      color: #EAEAEA;
+    background-color: #2b6c74;
     }
 
     #selected-courses{
@@ -146,5 +148,25 @@ nav:hover {
 	left: 0;
 }
 
-
+@-webkit-keyframes change_color {
+  0% {
+    border-color : #46BAE1;
+    background-color: #46BAE1 ;
+  }
+  
+  25% {
+    border-color : #217d87;
+    background-color: #217d87;
+  }
+  
+  50% {
+    border-color : #31abb8;
+    background-color: #31abb8;
+  }
+  
+  100% {
+    border-color : #46BAE1;
+    background-color: #46BAE1;
+  }
+}
 
