@@ -7,7 +7,7 @@ class StudyPlansController < ApplicationController
     else
       @study_plan = StudyPlan.new
       @study_plan.save
-      cookies[:study_plan_id] = @study_plan.id
+      cookies[:study_plan_id] = { value: @study_plan.id, expires: 1.month.from_now }
     end
 
     redirect_to @study_plan
