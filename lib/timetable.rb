@@ -41,7 +41,7 @@ class Timetable
   end
 
   def empty?
-    @days.empty?
+    @days.all? { |td| td.empty? }
   end
 
   def each_hour
@@ -111,6 +111,10 @@ class Timetable
 
     def columns
       (0..(@columns_count-1)).to_a
+    end
+
+    def empty?
+      @table.all? { |h| h.empty? }
     end
   end
 end

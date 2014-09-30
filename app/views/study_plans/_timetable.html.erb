@@ -1,25 +1,32 @@
-<table class='timetable'>
-  <tr>
-    <th class='hour'>
-    </th>
 
-    <% Lesson::DAYS.each do |day| %>
-      <th colspan=<%= timetable.day(day).columns_count %>>
-        <h3><%= Lesson::DAYS_NAMES[day] %></h3>
-      </th>
-      <% unless day == Lesson::DAYS.last %>
-        <th class='separator'></th>
-      <% end %>
-    <% end %>
-  </tr>
-
-  <% @hours = Lesson::HOURS_NAMES.clone %>
-  <% timetable.each_hour do |hour| %>
+<% if @timetable.empty? %>
+  <div class='small-12 columns text-center'>
+    <h1>&lt;&lt; Seleziona i corsi che segui</h1>
+  </div>
+<% else %>
+  <table class='timetable'>
     <tr>
-      <td class='hour'>
-        <%= @hours.shift %>
-      </td>
-      <%= timetable_hour_row(hour, timetable.id) %>
+      <th class='hour'>
+      </th>
+
+      <% Lesson::DAYS.each do |day| %>
+        <th colspan=<%= timetable.day(day).columns_count %>>
+          <h3><%= Lesson::DAYS_NAMES[day] %></h3>
+        </th>
+        <% unless day == Lesson::DAYS.last %>
+          <th class='separator'></th>
+        <% end %>
+      <% end %>
     </tr>
-  <% end %>
-</table>
+
+    <% @hours = Lesson::HOURS_NAMES.clone %>
+    <% timetable.each_hour do |hour| %>
+      <tr>
+        <td class='hour'>
+          <%= @hours.shift %>
+        </td>
+        <%= timetable_hour_row(hour, timetable.id) %>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
