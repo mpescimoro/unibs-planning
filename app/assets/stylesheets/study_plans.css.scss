@@ -27,7 +27,7 @@
 
     td.bot {
       border-top: none;
-      border-radius: 0px 0px 10px 10px;
+      border-radius: 0px 0px 0px 0px;
       padding: 7px 7px;
     }
 
@@ -37,7 +37,7 @@
     }
 
     td.single {
-      border-radius: 10px 10px 10px 10px;
+      border-radius: 0px 0px 0px 0px;
       padding: 7px 7px;
     }
 
@@ -71,7 +71,7 @@ nav {
 	box-shadow: 4px 0 5px rgba(0,0,0,0.2);
 	z-index: 1;
 	cursor: pointer;
-  animation: change_color 10s 10;
+
 
   padding-left: 20px;
   padding-top: 20px;
@@ -110,7 +110,8 @@ nav {
 .course-color-icon {
     width: 1.5em;
     height: 1.5em;
-    border-radius: 20%;
+    border-radius: 50%;
+    border: 1px solid white;
     float: left;
     margin-right: 0.3em;
 }
@@ -146,20 +147,4 @@ nav:hover {
 }
 
 
-@keyframes change_color {
-  0% {
-    border-color : #FC2D0D;
-  }
 
-  25% {
-    border-color : #05EB23
-  }
-
-  50% {
-    border-color : #FF7112;
-  }
-
-  100% {
-    border-color : #FC2D0D
-  }
-}
