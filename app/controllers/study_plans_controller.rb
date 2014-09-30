@@ -1,5 +1,5 @@
 class StudyPlansController < ApplicationController
-  before_action :set_study_plan, only: [:show, :add_course, :remove_course, :change_course_color]
+  before_action :set_study_plan, only: [:show, :add_course, :remove_course, :change_course_color, :rename_course]
 
   def index
     redirect_to study_plan_path(StudyPlan.first)
@@ -50,6 +50,16 @@ class StudyPlansController < ApplicationController
     respond_to do |f|
       f.html { redirect_to @study_plan }
       f.js { @course = Course.find(params[:course_id]) }
+    end
+  end
+
+  def rename_course
+    sp_course = @study_plan.study_plan_courses.where(course_id: params[:course_id]).first
+    sp_course.short_name = params[:name]
+    sp_course.save
+
+    respond_to do |f|
+      f.html { redirect_to @study_plan }
     end
   end
 

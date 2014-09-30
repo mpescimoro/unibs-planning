@@ -1,7 +1,7 @@
 <nav>
   <div class='courses'>
     <div class='course-select'>
-      <%= form_tag(study_plan_add_course_path(@study_plan), id: 'course_form', remote: true)  do %>
+      <%= form_tag(study_plan_add_course_path(@study_plan), id: 'course_form', remote: true) do %>
         <%= select_tag(:course_id, options_for_select(@courses.map { |c| [c.name, c.id] }), include_blank: true, class: 'chosen-select') %>
       <% end %>
     </div>

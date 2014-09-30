@@ -12,7 +12,7 @@ module StudyPlansHelper
 
   def lesson_td(lesson, timetable_id)
     content_tag :td, class: lesson_class(lesson), style: "background-color: \##{lesson.color(timetable_id)}" do
-      "#{lesson.course.name}</br></br><b>#{lesson.rooms.map(&:name).join ', '}<b>".html_safe
+      "#{lesson.course.short_name(timetable_id)}</br></br><b>#{lesson.rooms.map(&:name).join ', '}<b>".html_safe
     end
   end
 

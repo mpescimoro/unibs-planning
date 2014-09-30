@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     post 'add_course'
     delete 'remove_course/:course_id' => 'study_plans#remove_course', as: 'remove_course'
     post 'change_course_color/:course_id/:color_id' => 'study_plans#change_course_color', as: 'change_course_color'
+    post 'rename_course/:course_id' => 'study_plans#rename_course', as: 'rename_course'
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

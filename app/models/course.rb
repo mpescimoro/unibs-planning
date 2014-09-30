@@ -22,4 +22,9 @@ class Course < ActiveRecord::Base
     sp_course.color_id = color.id
     sp_course.save
   end
+
+  def short_name(study_plan_id)
+    sp_course = self.study_plan_courses.where(study_plan_id: study_plan_id).first
+    sp_course.short_name.blank? ?  self.name : sp_course.short_name
+  end
 end

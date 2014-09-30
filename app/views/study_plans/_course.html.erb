@@ -4,7 +4,21 @@
   </a>
 
   <ul id="<%= course.html_id %>drop" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
-    <li><a href="#">Assegna soprannome</a></li>
+
+
+    <li><a href="#" data-reveal-id="<%= course.html_id %>name" aria-expanded="true">Assegna soprannome</a></li>
+    <div class="reveal-modal" data-reveal id="<%= course.html_id %>name">
+      <%= form_tag(study_plan_rename_course_path(@study_plan, course), method: :post) do %>
+        <div class='row'>
+          <div class='small-9 columns'>
+            <%= text_field_tag :name, course.short_name(@study_plan.id) %>
+          </div>
+          <div class='small-3 columns'>
+            <%= submit_tag 'Ok', class: 'button' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
 
     <li><a href="#" data-reveal-id="<%= course.html_id %>color" aria-expanded="true">Cambia colore</a></li>
     <div class="reveal-modal" data-reveal id="<%= course.html_id %>color">
@@ -17,6 +31,7 @@
     </div>
 
     <li><%= link_to 'Rimuovi', study_plan_remove_course_path(@study_plan, course.id), style: 'color: red', method: :delete, remote: true %></li>
+
   </ul>
 </div>
 
