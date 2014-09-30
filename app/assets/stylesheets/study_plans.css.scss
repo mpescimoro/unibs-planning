@@ -2,6 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body {
+  background-color:  #23282b;
+}
+
+h3 {
+  color: #FFF;
+}
+
 
 .timetable {
   margin-left: auto;
@@ -9,19 +17,21 @@
   border-spacing: 0px;
   tr {
     vertical-align: text-top;
+
     td {
-      border-top: 1px solid;
-      border-color: #E9E9E9;
+      border-top: 2px solid;
+      border-color: #b4b4b4;
       color: #FFF;
       background-color: black;
       width: 100px;
       height: 100px;
       vertical-align: middle;
       text-align: center;
+
     }
 
     td.top {
-      border-radius: 10px 10px 0px 0px;
+      border-radius: 0px 0px 0px 0px;
       padding: 7px 7px;
     }
 
@@ -41,17 +51,20 @@
       padding: 7px 7px;
     }
 
-    td.separator {
-      background-color: transparent;
-      width:30px;
-    }
+    
 
-    td.empty {
+    .separator {
+      background-color: #b4b4b4;
+      width: 3px;
+
+      }
+
+    td.empty{
       background-color: transparent;
     }
 
     td.hour {
-      color: black;
+      color: #FFF;
       background-color: transparent;
       text-align: left;
       vertical-align: top;
@@ -68,12 +81,9 @@ nav {
 	bottom: 0;
 	background-color: #46BAE1;
 	border-right: 40px solid #46BAE1;
-	box-shadow: 4px 0 5px rgba(0,0,0,0.2);
+	box-shadow: 2px 0 10px #55768d;
 	z-index: 1;
 	cursor: pointer;
-  -webkit-animation: change_color 10s 20;
-
-
   padding-left: 20px;
   padding-top: 20px;
 
@@ -113,7 +123,7 @@ nav {
     width: 1.5em;
     height: 1.5em;
     border-radius: 50%;
-    border: 1px solid white;
+    border: 2px solid white;
     float: left;
     margin-right: 0.3em;
 }
@@ -148,25 +158,5 @@ nav:hover {
 	left: 0;
 }
 
-@-webkit-keyframes change_color {
-  0% {
-    border-color : #46BAE1;
-    background-color: #46BAE1 ;
-  }
-  
-  25% {
-    border-color : #217d87;
-    background-color: #217d87;
-  }
-  
-  50% {
-    border-color : #31abb8;
-    background-color: #31abb8;
-  }
-  
-  100% {
-    border-color : #46BAE1;
-    background-color: #46BAE1;
-  }
-}
+
 

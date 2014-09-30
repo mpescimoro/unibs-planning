@@ -12,8 +12,8 @@
       <% end %>
     <% end %>
   </tr>
-
-  <% @hours = Lesson::HOURS_NAMES.clone %>
+  
+  <% @hours = Lesson::HOURS_NAMES.clone  %>
   <% timetable.each_hour do |hour| %>
     <tr>
       <td class='hour'>
@@ -21,5 +21,6 @@
       </td>
       <%= timetable_hour_row(hour, timetable.id) %>
     </tr>
+
   <% end %>
 </table>

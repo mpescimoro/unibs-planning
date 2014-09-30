@@ -13,10 +13,11 @@ Color.delete_all
 StudyPlan.new.save
 
 Color.create(name: 'rosso', hex: 'F00')
-Color.create(name: 'verde', hex: '0D0')
+Color.create(name: 'verde', hex: '0C0')
 Color.create(name: 'blu', hex: '00F')
-Color.create(name: '???', hex: 'AA0')
-Color.create(name: '???', hex: '0AA')
-Color.create(name: '???', hex: 'E0A')
-Color.create(name: 'nero', hex: '000')
+Color.create(name: 'verde_acqua', hex: '03f4be')
+Color.create(name: 'arancio', hex: 'ff7400')
+Color.create(name: 'lilla', hex: '7e79ff')
+Color.create(name: 'viola', hex: 'd014f4')
+Color.create(name: 'Rosa', hex: 'ff2ce1')
 
