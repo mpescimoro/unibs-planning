@@ -1,7 +1,7 @@
 <nav>
   <div class='courses'>
     <div class='course-select'>
-      <%= form_tag(study_plan_add_course_path(@study_plan), id: 'course_form', remote: true) do %>
+      <%= form_tag(study_plan_add_course_path(@study_plan), id: 'course_form', remote: false) do %>
         <div class='row collapse'>
           <div class='small-10 columns'>
             <%= label_tag :corso_di_laurea %>

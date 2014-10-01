@@ -20,7 +20,7 @@ class StudyPlansController < ApplicationController
 
   def add_course
     @course = params[:course_id].blank? ? nil : Course.find(params[:course_id])
-    @course_added = @course and !@study_plan.courses.where(id: params[:course_id]).first
+    @course_added = @course && @study_plan.courses.where(id: params[:course_id]).first.nil?
     if @course_added
       @study_plan.courses.append @course
       @course.set_color(Color.offset(rand(Color.count)).first, @study_plan)
