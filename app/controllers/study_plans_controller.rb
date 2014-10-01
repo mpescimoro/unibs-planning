@@ -2,8 +2,8 @@ class StudyPlansController < ApplicationController
   before_action :set_study_plan, only: [:show, :add_course, :remove_course, :change_course_color, :rename_course]
 
   def index
-    if cookies[:study_plan_id] and StudyPlan.where(cookies[:study_plan_id]).first
-      @study_plan = StudyPlan.where(cookies[:study_plan_id]).first
+    if cookies[:study_plan_id] and StudyPlan.where(id: cookies[:study_plan_id]).first
+      @study_plan = StudyPlan.where(id: cookies[:study_plan_id]).first
       @study_plan.touch
     else
       @study_plan = StudyPlan.new
