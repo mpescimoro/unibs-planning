@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root 'study_plans#index'
 
+  resources :degrees
+
   resources :study_plans do
     post 'add_course'
     delete 'remove_course/:course_id' => 'study_plans#remove_course', as: 'remove_course'

@@ -1,0 +1,18 @@
+<h1>Corsi di laurea</h1>
+
+<table class='degrees-table'>
+  <tr>
+    <th>Nome</th>
+    <th>Nome umanizzato</th>
+    <th>Nome breve</th>
+    <th></th>
+  </tr>
+  <% @degrees.each do |degree| %>
+    <tr>
+      <td><%= degree.name %></td>
+      <td><%= degree.human_name %></td>
+      <td><%= degree.short_name %></td>
+      <td><%= link_to :modifica, edit_degree_path(degree) %></td>
+    </tr>
+  <% end %>
+</table>

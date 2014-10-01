@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140926155123) do
+ActiveRecord::Schema.define(version: 20141001162018) do
 
   create_table "colors", force: true do |t|
     t.string   "hex"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 20140926155123) do
     t.boolean  "master"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "human_name"
+    t.string   "short_name"
   end
 
   create_table "lessons", force: true do |t|
