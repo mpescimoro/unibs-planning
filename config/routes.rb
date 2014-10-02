@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  root 'study_plans#index'
+  root 'pages#home'
+
+  get 'home', to: 'pages#home'
 
   resources :degrees
 

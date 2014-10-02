@@ -29,6 +29,6 @@ class Course < ActiveRecord::Base
   end
 
   def full_name
-    name + (degree.short_name.blank? ? '' : "(#{degree.short_name})")
+    name + (degree.short_name.blank? ? '' : " [#{degree.short_name}]")
   end
 end
