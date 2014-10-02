@@ -14,5 +14,11 @@
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides
-
  */
+
+footer {
+  margin: 1em;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
