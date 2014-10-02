@@ -63,12 +63,15 @@ class StudyPlansController < ApplicationController
   end
 
   def rename_course
+    @timetable = Timetable.new(@study_plan)
+
     sp_course = @study_plan.study_plan_courses.where(course_id: params[:course_id]).first
     sp_course.short_name = params[:name]
     sp_course.save
 
     respond_to do |f|
       f.html { redirect_to @study_plan }
+      f.js { @course = Course.find(params[:course_id]) }
     end
   end
 
