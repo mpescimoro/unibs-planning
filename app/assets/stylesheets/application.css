@@ -22,3 +22,7 @@ footer {
   bottom: 0;
   right: 0;
 }
+
+label {
+  color: #333;
+}

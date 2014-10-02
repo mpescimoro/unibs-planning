@@ -30,7 +30,7 @@
       </div>
     </div>
 
-    <li><%= link_to 'Rimuovi', study_plan_remove_course_path(@study_plan, course.id), style: 'color: red', method: :delete, remote: true %></li>
+    <li><%= link_to 'Rimuovi', study_plan_remove_course_path(@study_plan, course.id), method: :delete, remote: true %></li>
 
   </ul>
 </div>

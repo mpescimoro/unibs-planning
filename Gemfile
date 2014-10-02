@@ -36,6 +36,8 @@ gem 'rails_12factor'
 gem 'foundation-rails'
 gem 'foundation_rails_helper'
 
+gem 'devise'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'

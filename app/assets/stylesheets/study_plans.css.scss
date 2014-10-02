@@ -81,9 +81,9 @@ nav {
 	left: -370px;
 	top: 0;
 	bottom: 0;
-	background-color: #00A1D1;
-	border-right: 40px solid #00A1D1;
-	box-shadow: 2px 0 10px #55768d;
+	background-color: scale-color(#fff, $lightness: -5%);;
+	border-right: 40px solid scale-color(#fff, $lightness: -5%);;
+	box-shadow: 2px 0 10px scale-color(#fff, $lightness: -25%);;
 	z-index: 1;
 	cursor: pointer;
   padding-left: 20px;
@@ -95,11 +95,12 @@ nav {
     margin: 0;
 
     a.course {
-      color: white;
+      color: #333;
       padding: 2px;
     }
     a.course:hover {
-    background-color: #2b6c74;
+      background-color: #333;
+      color: white;
     }
 
     #selected-courses{
@@ -125,7 +126,7 @@ nav {
     width: 1.5em;
     height: 1.5em;
     border-radius: 50%;
-    border: 2px solid white;
+    border: 0px solid black;
     float: left;
     margin-right: 0.3em;
 }

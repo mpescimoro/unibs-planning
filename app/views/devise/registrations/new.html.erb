@@ -1,0 +1,29 @@
+<div class='row'>
+  <div class='large-8 large-offset-2 columns panel'>
+    <h2>Registrazione</h2>
+
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div><%= f.email_field :email, :autofocus => true %></div>
+
+      <div><%= f.text_field :name, label: 'Nome utente' %></div>
+
+      <div class='row collapse'>
+        <div class='small-9 columns'>
+          <%= f.select :degree_id, options_for_select(Degree.all.map { |d| [d.full_name, d.id] }), label: 'Corso di laurea' %>
+        </div>
+
+        <div class='small-3 columns'>
+          <%= f.select :degree_year, options_for_select((1..5).to_a), label: 'Anno' %>
+        </div>
+      </div>
+
+      <div><%= f.password_field :password %></div>
+
+      <div><%= f.password_field :password_confirmation, label: 'Conferma password' %></div>
+
+      <div><%= f.submit "Ok" %></div>
+    <% end %>
+  </div>
+</div>

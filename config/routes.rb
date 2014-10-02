@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
   root 'pages#home'
-
   get 'home', to: 'pages#home'
+
+  devise_for :users, controllers: { registrations: 'user_registrations' }
 
   resources :degrees
 
