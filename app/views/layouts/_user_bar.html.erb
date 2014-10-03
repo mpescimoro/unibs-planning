@@ -1,0 +1,11 @@
+<div class='small-12 columns user-bar text-right'>
+  <i>
+    Benvenuto <a href="#" data-dropdown="user-options" data-options="align:left" aria-expanded="true"><%= current_user.name %></a>!
+  </i>
+
+  <ul id="user-options" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
+    <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+    <li><%= link_to 'Modifica account', edit_user_registration_path %></li>
+    <li><%= link_to 'Gestisci orario', study_plans_path %></li>
+  </ul>
+</div>

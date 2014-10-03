@@ -16,6 +16,13 @@
  *= require foundation_and_overrides
  */
 
+.user-bar {
+  top: 0;
+  right: 0;
+  bottom: auto;
+  padding: 1em;
+}
+
 footer {
   margin: 1em;
   position: fixed;
@@ -25,4 +32,8 @@ footer {
 
 label {
   color: #333;
+}
+
+.alert-box {
+  text-align: center;
 }

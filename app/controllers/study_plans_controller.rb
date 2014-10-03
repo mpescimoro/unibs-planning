@@ -2,14 +2,18 @@ class StudyPlansController < ApplicationController
   before_action :set_study_plan, only: [:show, :add_course, :remove_course, :change_course_color, :rename_course]
 
   def index
-    if cookies[:study_plan_id] and StudyPlan.where(id: cookies[:study_plan_id]).first
-      @study_plan = StudyPlan.where(id: cookies[:study_plan_id]).first
-      @study_plan.touch
+    if user_signed_in?
+      @study_plan = current_user.study_plan
     else
-      @study_plan = StudyPlan.new
-      @study_plan.save
+      if cookies[:study_plan_id] and StudyPlan.where(id: cookies[:study_plan_id]).first
+        @study_plan = StudyPlan.where(id: cookies[:study_plan_id]).first
+        @study_plan.touch
+      else
+        @study_plan = StudyPlan.new
+        @study_plan.save
+      end
+      cookies[:study_plan_id] = { value: @study_plan.id, expires: 1.month.from_now }
     end
-    cookies[:study_plan_id] = { value: @study_plan.id, expires: 1.month.from_now }
 
     redirect_to @study_plan
   end
