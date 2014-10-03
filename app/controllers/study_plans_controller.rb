@@ -1,5 +1,6 @@
 class StudyPlansController < ApplicationController
   before_action :set_study_plan, only: [:show, :add_course, :remove_course, :change_course_color, :rename_course]
+  before_action :authenticate_sp_owner!, only: [:show, :add_course, :remove_course, :change_course_color, :rename_course]
 
   def index
     if user_signed_in?
@@ -82,5 +83,14 @@ class StudyPlansController < ApplicationController
   private
   def set_study_plan
     @study_plan = StudyPlan.find(params[:id] || params[:study_plan_id])
+  end
+
+  def authenticate_sp_owner!
+    authenticated =  if @study_plan.user
+                       user_signed_in? && (current_user.study_plan_id == @study_plan.id)
+                     else
+                       cookies[:study_plan_id].to_i == @study_plan.id
+                     end
+    redirect_to root_path, alert: 'Non hai accesso a questa pagina' unless authenticated
   end
 end

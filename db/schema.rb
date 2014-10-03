@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141003081259) do
+ActiveRecord::Schema.define(version: 20141003103148) do
 
   create_table "colors", force: true do |t|
     t.string   "hex"
@@ -73,7 +73,6 @@ ActiveRecord::Schema.define(version: 20141003081259) do
   end
 
   create_table "study_plans", force: true do |t|
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
