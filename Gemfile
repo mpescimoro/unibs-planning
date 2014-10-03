@@ -5,7 +5,6 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', group: [:development, :test]
-gem 'pg', group: :production
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -37,6 +36,11 @@ gem 'foundation-rails'
 gem 'foundation_rails_helper'
 
 gem 'devise'
+
+group :production do
+  gem 'unicorn'
+  gem 'pg'
+end
 
 group :development do
   gem 'better_errors'
