@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
 
+  namespace :users do
+  get 'omniauth_callbacks_controller/facebook'
+  end
+
   root 'pages#home'
   get 'home', to: 'pages#home'
 
-  devise_for :users, controllers: { registrations: 'user_registrations' }
+  devise_for :users, controllers: { registrations: 'users/registrations', omniauth_callbacks: 'users/omniauth_callbacks' }
 
   resources :degrees
 

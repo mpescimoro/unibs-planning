@@ -24,7 +24,7 @@
       <%= link_to 'Prova subito', study_plans_path, class: 'button large' %>
     </div>
     <div class='large-4 columns'>
-      <%= link_to 'Accedi via Facebook', '#', class: 'button disabled large' %>
+      <%= link_to 'Accedi via Facebook', user_omniauth_authorize_path(:facebook), class: 'button large' %>
     </div>
   <% end %>
 </div>

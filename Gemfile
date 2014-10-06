@@ -36,6 +36,7 @@ gem 'foundation-rails'
 gem 'foundation_rails_helper'
 
 gem 'devise'
+gem 'omniauth-facebook'
 
 group :production do
   gem 'unicorn'

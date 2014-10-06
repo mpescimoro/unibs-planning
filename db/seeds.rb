@@ -9,6 +9,7 @@
 StudyPlan.delete_all
 StudyPlanCourse.delete_all
 Color.delete_all
+User.delete_all
 
 StudyPlan.new.save
 
